@@ -2,6 +2,11 @@
 
 set -e
 
+if ! command -v curl &>/dev/null; then
+  echo "Installing curl..."
+  sudo apt update -y && sudo apt install -y curl
+fi
+
 if ! command -v nixpacks &>/dev/null; then
   echo "Installing Nixpacks..."
   curl -sSL https://nixpacks.com/install.sh | bash
